@@ -1,16 +1,27 @@
-import React from 'react';
+import React, { Fragment } from "react";
+import { CssBaseline, withStyles } from "@material-ui/core";
+import AppHeader from './components/AppHeader'
+import Home from "./components/pages/Home";
+import Weather from "./components/Weather"
 
-import './App.css';
-import Weather from './Weather'
+const styles = (theme) => ({
+	main: {
+		padding: theme.spacing(3),
+		[theme.breakpoints.down("xs")]: {
+			padding: theme.spacing(2),
+		},
+	},
+});
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <Weather/>
-      </header>
-    </div>
-  );
-}
+const App = ({ classes }) => (
+	<Fragment>
+		<CssBaseline />
+		<AppHeader />
+		<main className={classes.main}>
+			<Home />
+			<Weather/>
+		</main>
+	</Fragment>
+);
 
-export default App;
+export default withStyles(styles)(App);
