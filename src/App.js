@@ -1,4 +1,6 @@
 import React, { Fragment } from "react";
+import { Route } from 'react-router-dom';
+import { ImplicitCallback } from '@okta/okta-react';
 import { CssBaseline, withStyles } from "@material-ui/core";
 import AppHeader from './components/AppHeader'
 import Home from "./components/pages/Home";
@@ -20,6 +22,7 @@ const App = ({ classes }) => (
 		<main className={classes.main}>
 			<Home />
 			<Weather/>
+			<Route exact path="/" component={Home} /> 
 		</main>
 	</Fragment>
 );
